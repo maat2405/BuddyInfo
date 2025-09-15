@@ -14,12 +14,15 @@ public class AddressBook
         this.buddies.add(buddy);
     }
 
-    public boolean removeBuddy(String name)
+    public boolean removeBuddy(BuddyInfo buddy)
     {
-        return this.buddies.removeIf(buddy -> buddy.getName().equals(name));
+        return buddies.remove(buddy);
     }
 
     public static void main(String[] args) {
-        System.out.println("Address Book");
+        BuddyInfo buddy = new BuddyInfo("John", "123 LeBron St.", "613-123-4567");
+        AddressBook addressBook = new AddressBook();
+        addressBook.addBuddy(buddy);
+        addressBook.removeBuddy(buddy);
     }
 }
