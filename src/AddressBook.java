@@ -1,5 +1,6 @@
 //UPDATED IN GITHUB 2025-09-17 12:30pm
 
+
 import java.util.ArrayList;
 
 public class AddressBook
@@ -19,18 +20,24 @@ public class AddressBook
         }
     }
 
-    public BuddyInfo removeBuddy(int index)
+    public boolean removeBuddy(BuddyInfo buddy)
     {
-        if (index >= 0 && index < buddies.size()) {
-            return buddies.remove(index);
+        if (buddy != null) {
+            return buddies.remove(buddy);
         }
-        return null;
+        return false;
+    }
+
+    public int numberOfBuddies() {
+        return buddies.size();
     }
 
     public static void main(String[] args) {
         BuddyInfo buddy = new BuddyInfo("John", "123 LeBron St.", "613-123-4567");
         AddressBook addressBook = new AddressBook();
         addressBook.addBuddy(buddy);
-        addressBook.removeBuddy(0);
+        addressBook.removeBuddy(buddy);
+        int numOfBuddies = addressBook.numberOfBuddies();
+        System.out.println("You have " + numOfBuddies + " friends!" );
     }
 }
