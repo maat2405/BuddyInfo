@@ -20,12 +20,12 @@ public class AddressBook
         }
     }
 
-    public boolean removeBuddy(BuddyInfo buddy)
+    public BuddyInfo removeBuddy(int index)
     {
-        if (buddy != null) {
-            return buddies.remove(buddy);
+        if (index >= 0 && index < buddies.size()) {
+            return buddies.remove(index);
         }
-        return false;
+        return null;
     }
 
     public int numberOfBuddies() {
@@ -36,7 +36,7 @@ public class AddressBook
         BuddyInfo buddy = new BuddyInfo("John", "123 LeBron St.", "613-123-4567");
         AddressBook addressBook = new AddressBook();
         addressBook.addBuddy(buddy);
-        addressBook.removeBuddy(buddy);
+        addressBook.removeBuddy(0);
         int numOfBuddies = addressBook.numberOfBuddies();
         System.out.println("You have " + numOfBuddies + " friends!" );
     }
